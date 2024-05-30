@@ -1,0 +1,338 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #222;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #000;
+    background-image: url('Pictures/Header.jpg');
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url('Pictures/Header.jpg');
+    background-color: rgba(0, 0, 0, 0.4);
+    background-blend-mode: multiply;
+    padding: 35px;
+    text-align: center;
+}
+
+/************************ NAV BAR ************************/
+nav {
+    height: 55px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.links-container {
+    display: flex;
+    align-items: center;
+}
+
+nav a {
+    height: 100%;
+    padding: 0 0px;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li {
+    position: relative;
+    margin-right: 25px;
+}
+
+nav ul li:not(.search-bar):not(:nth-last-child(2)):not(:nth-last-child(1)):after {
+    content: "";
+    height: 3px;
+    width: 0;
+    background: rgb(255, 255, 255);
+    position: absolute;
+    left: 50%;
+    bottom: -4px;
+    transition: width 0.5s, left 0.5s;
+    transform: translateX(-50%);
+}
+
+nav ul li:hover:not(.search-bar):not(:nth-last-child(2))::after {
+    width: 100%;
+}
+
+.logo-container {
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+}
+
+.logo-container img {
+    width: auto;
+    height: 35px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.logo-container p {
+    margin: 0px;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.login-profile {
+    display: flex;
+    align-items: center;
+}
+
+.login-profile img {
+    width: auto;
+    height: 35px;
+    margin-left: 15px;
+}
+
+#login-btn {
+    padding: 2px 10px;
+    font-size: 15px;
+    border-radius: 15px;
+    background-color: transparent;
+    border: 2px solid #ffffff;
+    color: white;
+    transition: border-color 0.5s, transform 0.4s;
+}
+
+#login-btn:hover {
+    border-color: rgb(255, 255, 255);
+    transform: scale(1.06);
+}
+
+#search-bar {
+    border-radius: 8px;
+    padding: 4px 10px;
+}
+
+/* Sidebar styles */
+#sidebar-active {
+    display: none;
+}
+
+.open-sidebar-button, .close-sidebar-button {
+    display: none;
+}
+
+/************************ SIDEBAR ************************/
+
+@media (max-width: 1000px) {
+    nav {
+        justify-content: space-between;
+    }
+
+    .links-container {
+        flex-direction: column;
+        align-items: flex-start;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 300px;
+        height: 100%;
+        background-color: #222;
+        transition: right 0.6s ease-in-out; /* Slower transition */
+        z-index: 10;
+    }
+
+    .links-container ul {
+        flex-direction: column; /* Make the links stack vertically */
+        width: 100%;
+    }
+
+    nav a {
+        height: auto;
+        width: 100%;
+        padding: 20px 30px;
+        justify-content: flex-start;
+    }
+
+    .open-sidebar-button, .close-sidebar-button {
+        display: block;
+        padding: 20px;
+    }
+
+    #sidebar-active:checked ~ .links-container {
+        right: 0;
+    }
+
+    .logo-container {
+        margin: 0 0px;
+    }
+
+    #search-container {
+        width: 90%;
+        margin-bottom: 5px;
+    }
+
+    #search-bar {
+        border-radius: 8px;
+        padding: 10px;
+        width: calc(100% - 30px);
+        margin: 0px 10px 10px 10px;
+    }
+
+    nav ul li:not(#search-container) {
+        width: 100%;
+    }
+
+    nav ul li a {
+        padding: 20px 30px;
+    }
+
+    nav ul li:not(#search-container):not(:nth-last-child(2)):not(:nth-last-child(1)):after {
+        display: none;
+    }
+
+    .login-profile {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin-bottom: 20px;
+    }
+
+    .login-profile img {
+        margin-right: 10px;
+    }
+
+    #login-btn {
+        margin-left: 25px;
+    }
+
+    .login-profile {
+        order: 1;
+    }
+
+    #search-container {
+        order: 2;
+    }
+
+    nav ul li {
+        order: 3;
+    }
+
+}
+
+
+/************************ NAV BAR END ************************/
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #333;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.contact-box {
+    display: flex;
+    align-items: center;
+}
+
+.contact-img {
+    flex: 0 0 auto;
+    margin-right: 20px;
+}
+
+.contact-img img {
+    width: 350px;
+    height: 350px;
+    border-radius: 10px;
+}
+
+.contact-form {
+    flex: 1;
+}
+
+.contact-form h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: none;
+    font-family: Arial, sans-serif;
+    resize: vertical;
+}
+
+.send-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #fabe7a;
+    color: #ffffff;
+    text-shadow: 2px 2px 3px black;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #db994d;
+}
+
+.form-control:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+@media (max-width: 768px) {
+    .contact-box {
+        flex-direction: column; 
+        align-items: center;
+    }
+
+    .contact-img {
+        order: 2;
+        margin-right: 0;
+        margin-bottom: 20px; 
+    }
+
+    .contact-img img {
+        width: 70%;
+        height: auto;
+        margin-left: 70px;
+    }
+
+    .contact-form {
+        order: 1;
+        width: 100%;
+    }
+}
