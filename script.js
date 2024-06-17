@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 document.documentElement.classList.add('dark-theme');
                 localStorage.setItem('theme', 'dark-theme');
                 themeText.textContent = 'Light';
-                themeIcon.src = 'Pictures/sun.png';
+                themeIcon.src = 'Pictures/Sun.png';
                 profileDark.classList.remove('hidden');
                 profileLight.classList.add('hidden');
                 contactIcons.forEach(icon => icon.style.color = '#acaaaa');
