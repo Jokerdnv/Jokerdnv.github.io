@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 contactIcons.forEach(icon => icon.style.color = '#000');
             } else {
                 themeText.textContent = 'Light';
-                themeIcon.src = 'Pictures/sun.png';
+                themeIcon.src = 'Pictures/Sun.png';
                 profileDark.classList.remove('hidden');
                 profileLight.classList.add('hidden');
                 contactIcons.forEach(icon => icon.style.color = '#acaaaa');
