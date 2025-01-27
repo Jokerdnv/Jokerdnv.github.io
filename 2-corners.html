@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floorball Exercises</title>
+    <link rel="stylesheet" href="2-corners.css">
+    <script src="2_corners.js"></script>
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
+
+</head>
+<body>
+
+  <div class="container">
+    <!-- Big Image Carousel -->
+    <div class="carousel">
+      <div class="header-container">
+
+        <div class="language-container">
+          <span class="language-label" data-lang-en="Language:" data-lang-sk="Jazyk:">Language:</span>
+          <button id="language-toggle-btn" class="toggle-btn">
+              <span id="language-flag" class="flag-icon flag-icon-sk"></span>
+              <span>sk</span>
+          </button>
+        </div>
+      </div>
+
+      <h2 id="exercise-name" data-lang-en="2 Corners" data-lang-sk="2 Rohy">2 Corners</h2>
+      
+      <div class="image-container">
+        <img id="main-image" src="2-Corners-images/2_Corners_preview.jpg" alt="Exercise Preview">
+      </div>
+      <div class="carousel-controls">
+        <button id="prev-button">&larr;</button>
+        <span id="step-text" data-lang-en="Preview" data-lang-sk="Náhľad">Preview</span>
+        <button id="next-button">&rarr;</button>
+      </div>
+    </div>
+
+    <!-- Description Container -->
+    <div class="description-container">
+      <div class="description-text">
+        <p id="image-description">Description for the Preview</p>
+      </div>
+
+      <div class="icons-explanation">
+        <img id="icons-explanation-img" src="2-Corners-images/Floorball_explanations_EN.jpg" alt="Icons Explanation">
+      </div>
+
+    </div>
+    
+    <div class="button-container">
+      <button id="back-to-drills" onclick="goBack()" data-lang-en="Back to all drills" data-lang-sk="Späť na všetky cvičenia">Back to all drills</button>
+      <span class="designer-text" data-lang-en="Designed by Jokerdnv" data-lang-sk="Navrhol Jokerdnv">Designed by Jokerdnv</span>
+    </div>
+  </div>
+</body>
+</html>
+
+
+
+
+
+

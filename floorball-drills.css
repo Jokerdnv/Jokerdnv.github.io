@@ -1,0 +1,195 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #35145f;
+    color: #333;
+}
+
+header {
+    background-image: url('Floorball-Drills-Images/Header.png'); /* Replace with your image path */
+    background-color: #ffffff;
+    background-size: cover; /* Ensures the image covers the entire header */
+    background-position: center; /* Centers the image */
+    color: #fff;
+    padding: 70px 0; /* Increases the height of the header */
+    text-align: center;
+    position: relative;
+}
+
+/* Optional: Add a slight overlay for better text readability */
+header::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Adjust opacity for darker overlay */
+    z-index: 1;
+}
+
+header h1 {
+    position: relative;
+    z-index: 2; /* Places the text above the overlay */
+    font-size: 2.5rem;
+    text-shadow: 0px 1px 1px black;
+}
+
+
+#section-nav {
+    background: #0a0a0a;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+#section-nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+#section-nav a:hover {
+    background: #a935f7;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.section {
+    display: none;
+}
+
+.section.active {
+    display: block;
+}
+
+.exercise {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.exercise img {
+    max-width: 60%;
+    border-radius: 5px;
+}
+
+.exercise h3 {
+    margin-top: 10px;
+    color: #0a0a0a;
+}
+
+.difficulty {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.details-link {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 15px;
+    background-color: #a935f7;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.details-link:hover {
+    background-color: #be66f8;
+}
+
+.exercise {
+    display: none;
+}
+.exercise[style="display: block;"] {
+    display: block;
+}
+
+nav a.active {
+    background-color: #a935f7;
+    color: #fff;
+    border-radius: 5px;
+}
+
+@media (max-width: 800px) {
+    #section-nav a {
+        font-size: 14px; /* Adjust font size as needed */
+        margin: 0 10px; /* Reduce margin for better spacing */
+    }
+
+    .exercise img {
+        max-width: 100%;
+        border-radius: 5px;
+    }
+}
+
+.easy {
+    color: green;
+    font-weight: bold;
+}
+
+.medium {
+    color: orange;
+    font-weight: bold;
+}
+
+.hard {
+    color: red;
+    font-weight: bold;
+}
+
+.fun {
+    color: rgb(0, 140, 158);
+    font-weight: bold;
+}
+
+.footer {
+    display: flex; /* Use flexbox for aligning items */
+    align-items: center; /* Vertically center the items */
+    justify-content: flex-end; /* Align items to the left */
+    margin-top: 20px;
+    padding-left: 20px;
+    color: #fff; /* White text color to match your website's theme */
+}
+
+.footer h3 {
+    font-weight: bold; /* Make the text bold */
+    color: #000000; /* Match the color to your website's theme */
+    margin-right: 10px; /* Add some space between the h3 and the button */
+}
+
+.portfolio-button {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #a935f7; /* Use your primary color */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold; /* Make the button text bold */
+}
+
+.portfolio-button:hover {
+    background-color: #be66f8; /* Hover effect with lighter shade */
+}
+
+

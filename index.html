@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jokerdnv</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <link rel="icon" href="Pictures/piano-icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+    </style>
+</head>
+<body>
+<div class="content-wrapper">
+    <header>
+    </header>
+
+    <nav>
+        <input type="checkbox" id="sidebar-active">
+        <label for="sidebar-active" class="open-sidebar-button material-symbols-outlined">menu</label>
+        <div id="blur-overlay"></div>
+  
+        <div class="links-container">
+            <label for="sidebar-active" class="close-sidebar-button">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+            </label>
+            <ul>
+                <li><a href="index.html" data-lang-en="Portfolio" data-lang-sk="Portfólio">Portfolio</a></li>
+                <li><a href="about-me.html" data-lang-en="About Me" data-lang-sk="O mne">About Me</a></li>
+                <li><a href="other-projects.html" data-lang-en="Other Projects" data-lang-sk="Iné projekty">Other Projects</a></li>
+                <li class="language-toggle">
+                    <span class="language-label" data-lang-en="Language:" data-lang-sk="Jazyk:">Language:</span>
+                    <button id="language-toggle-btn" class="toggle-btn">
+                        <span id="language-flag" class="flag-icon flag-icon-sk"></span>
+                        <span>sk</span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- *********************** SIDEBAR ********************** -->
+
+
+    <main>
+        <div class="hero-container">
+            <div class="hero-content">
+            <h1>Michal Kochan</h1>
+
+            <div class="contact-icons">
+                <a href="mailto:jokerdnv1@email.com" target="_blank"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.instagram.com/jokerdnv/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@jokerdnv3046/featured" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://open.spotify.com/user/31d4skmxse55msx4gu5nillkma5a?si=102e038776684f3e" target="_blank"><i class="fab fa-spotify"></i></a>
+            </div>
+
+            <p1 data-lang-en="I motivate, teach and help children grow<br>" data-lang-sk="Motivujem, učím a pomáham deťom rásť<br>">
+                I motivate, teach and help children grow<br>
+            </p1>
+            <p2 data-lang-en="🌟 | Animator at day camps<br>" data-lang-sk="🌟 | Animátor na denných táboroch<br>">
+                🌟 | Animator at day camps<br>
+            </p2>
+            <p2 data-lang-en="🥅 | Floorball coach at @goodsports<br>" data-lang-sk="🥅 | Tréner florbalu v @goodsports<br>">
+                🥅 | Floorball coach at @goodsports<br>
+            </p2>
+            <p2 data-lang-en="💻 | Programming Lector<br>" data-lang-sk="💻 | Lektor programovania<br>">
+                💻 | Programming Lector<br>
+            </p2>
+            <a href="about-me.html" class="about-me-button" data-lang-en="More About Me" data-lang-sk="Viac o mne">
+                More About Me
+            </a>
+
+            
+                <div class="hero-grid">
+                    <a href="other-projects.html" class="grid-item">
+                        <img id="icon-1" src="Pictures/MH_Preview.png" alt="Icon 1">
+                        <p data-lang-en="Other website projects" data-lang-sk="Iné webové projekty">Other website projects</p>
+                    </a>
+                    <a href="floorball-drills.html" class="grid-item">
+                        <img src="Pictures/Floorball_01.jpg" alt="Icon 2">
+                        <p data-lang-en="Floorball Drills" data-lang-sk="Florbalové cvičenia">Floorball Drills</p>
+                    </a>
+                    
+
+                </div>
+            </div>
+        </div>
+    
+      </main>
+</div>
+
+<footer>
+    <div class="contact-container">
+        <h3 data-lang-en="Website designed by: Jokerdnv" data-lang-sk="Webstránku vytvoril: Jokerdnv">Website designed by: Jokerdnv</h3>
+        <p data-lang-en="Thanks for visiting my website :D" data-lang-sk="Ďakujem, že ste navštívili moju stránku :D">Thanks for visiting my website :D</p>
+    </div>
+</footer>
+
+</body>
+</html>
