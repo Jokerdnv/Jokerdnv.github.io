@@ -383,7 +383,6 @@ main {
 
     .hero-content h1 {
         font-size: 70px;
-        width: 85%;
     }
     
     .hero-content p1 {
@@ -396,7 +395,10 @@ main {
 
     .about-me-button {
         font-size: 15px;
-
+    }
+      
+    .hero-content{
+        width: 85%;
     }
 }
 
