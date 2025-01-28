@@ -383,6 +383,7 @@ main {
 
     .hero-content h1 {
         font-size: 70px;
+        width: 85%;
     }
     
     .hero-content p1 {
