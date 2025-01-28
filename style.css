@@ -432,6 +432,7 @@ main {
     .about-me-button {
         font-size: 12px;
         padding: 10px 20px;
+        margin-left: 15px;
     }
 
     .hero-grid .grid-item {
