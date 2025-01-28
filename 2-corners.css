@@ -185,7 +185,7 @@ h2#exercise-name {
     margin-bottom: 20px;
   }
 .container {
-  padding: 0;
+  width: 100%;
 }
   
 }
