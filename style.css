@@ -413,27 +413,26 @@ main {
     .hero-content {
         width: 100%;
         left: 0px
-        overflow: hidden;
     }
     .hero-content h1 {
         font-size: 35px;
-        padding: 0 25px;
+        padding: 0 15px;
     }
     
     .hero-content p1 {
         font-size: 18px;
-        padding: 0 25px;
+        padding: 0 15px;
     }
     
     .hero-content p2 {
         font-size: 15px;
-        padding: 0 25px;
+        padding: 0 15px;
     }
 
     .about-me-button {
         font-size: 12px;
         padding: 10px 20px;
-        padding: 0 25px;
+        padding: 0 15px;
     }
 
     .hero-grid .grid-item {
@@ -443,6 +442,7 @@ main {
 
     .contact-icons{
         margin-bottom: 5px;
+        padding: 0 15px;
     }
     
     .contact-icons a {
