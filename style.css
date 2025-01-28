@@ -413,6 +413,7 @@ main {
     .hero-content {
         width: 100%;
         left: 0px
+        overflow: hidden;
     }
     .hero-content h1 {
         font-size: 35px;
