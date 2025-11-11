@@ -1,6 +1,7 @@
 body {
     font-family: 'Comic Sans MS', cursive, sans-serif;
     background-image: url(Lessons_pics/Snow.png);
+    background-size: cover;
     color: #333;
     display: flex;
     flex-direction: column;
@@ -52,4 +53,5 @@ footer {
     bottom: 10px;
     font-size: 0.9em;
     color: #555;
+
 }
