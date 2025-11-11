@@ -2,6 +2,9 @@ body {
     font-family: 'Comic Sans MS', cursive, sans-serif;
     background-image: url(Lessons_pics/Snow.png);
     background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    backdrop-filter: blur(3px);
     color: #333;
     display: flex;
     flex-direction: column;
@@ -55,4 +58,5 @@ footer {
     color: #555;
 
 }
+
 
