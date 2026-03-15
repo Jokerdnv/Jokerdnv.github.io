@@ -8,11 +8,27 @@
 </head>
 
 <body>
-    <div class="links">
-        <a href="https://garticphone.com/sk" target="_blank">
-            <img src="Gartic_logo.png" alt="Gartic Logo">
-            Gartic - Last update: 14.3.
-        </a>
-    </div>
+
+<div class="links">
+    <a id="garticLink" target="_blank">
+        <img src="Gartic_logo.png" alt="Gartic Logo">
+        Gartic - Last update: loading...
+    </a>
+</div>
+
+<script>
+fetch("https://docs.google.com/spreadsheets/d/1YO0jisQPK7iVEUVvAj-mlymxqHPwIzNsmV2xXQgo1aE/gviz/tq?tqx=out:json")
+.then(res => res.text())
+.then(data => {
+    const json = JSON.parse(data.substring(47).slice(0, -2));
+    
+    const link = json.table.rows[0].c[1].v;
+    const date = json.table.rows[0].c[2]?.v || "";
+
+    const a = document.getElementById("garticLink");
+    a.href = link;
+    a.innerHTML = `<img src="Gartic_logo.png" alt="Gartic Logo"> Gartic - Last update: ${date}`;
+});
+</script>
+
 </body>
-</html>
