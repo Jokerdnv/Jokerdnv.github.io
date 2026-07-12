@@ -1,10 +1,7 @@
 body {
     font-family: 'Fredoka', sans-serif;
-    background-image: url(bridge.jpg);
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    color: #333;
+    background: url("bridge.jpg") center/cover fixed no-repeat;
+    color: #fff;
 
     display: flex;
     flex-direction: column;
@@ -12,52 +9,69 @@ body {
 
     min-height: 100vh;
     margin: 0;
-    padding: 30px 0;
+    padding: 40px 20px;
 }
 
 h1 {
-    font-size: 3em;
-    margin-bottom: 30px;
-    color: #ff6f61;
-    text-shadow: 2px 2px #fff;
+    font-size: 3rem;
+    margin-bottom: 40px;
+    color: white;
+    text-shadow: 0 3px 15px rgba(0,0,0,0.4);
+    letter-spacing: 1px;
 }
 
 .links {
+    width: 100%;
+    max-width: 500px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    align-items: center;
+    gap: 18px;
 }
 
-a {
-    text-decoration: none;
-    background-color: #ffeb3b;
-    color: #000;
-    padding: 15px 25px;
-    border-radius: 15px;
-    font-size: 1.5em;
+.links a {
     display: flex;
     align-items: center;
-    gap: 10px;
-    transition: transform 0.2s, background-color 0.2s;
+    gap: 15px;
+
+    padding: 18px 24px;
+
+    text-decoration: none;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 600;
+
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 16px;
+
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+
+    transition: all .25s ease;
 }
 
-a:hover {
-    transform: scale(1.1);
-    background-color: #ffcc00;
+.links a:hover {
+    transform: translateY(-4px);
+    background: rgba(255,255,255,0.25);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.35);
 }
 
-a img {
-    width: 30px;
-    height: 30px;
+.links a:active {
+    transform: scale(0.98);
+}
+
+.links a img {
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
 }
 
 footer {
-    position: absolute;
-    bottom: 10px;
-    font-size: 0.9em;
-    color: #555;
-
+    margin-top: auto;
+    padding-top: 40px;
+    color: rgba(255,255,255,0.8);
+    font-size: 0.9rem;
+    text-shadow: 0 1px 5px rgba(0,0,0,0.3);
 }
-
-
