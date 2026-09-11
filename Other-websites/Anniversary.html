@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
+<title>One Month With You</title>
+<style>
+
+  :root{
+    --paper: #ffcccc;
+    --ink: #362B4A;
+    --plum: #6B3F69;
+    --gold: #C99B4A;
+    --blush: #E9B9AE;
+    --line: rgba(54, 43, 74, 0.15);
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body{
+    margin:0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Fredoka', 'Times New Roman', serif;
+    line-height: 1.5;
+  }
+
+  body::before{
+    content:"";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(107,63,105,0.04) 0, transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(201,155,74,0.05) 0, transparent 40%);
+    z-index: 0;
+  }
+
+  section{
+    position: relative;
+    z-index: 1;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 90px 28px;
+  }
+
+  /* ---------- HERO ---------- */
+
+  .hero{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 28px;
+  }
+
+  .hero-row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    flex-wrap: wrap;
+  }
+
+  .hero-photo{
+    width: 260px;
+    height: 260px;
+    flex: 0 0 260px;
+    object-fit: cover;
+    border-radius: 14px;
+    border: 1px solid var(--line);
+    margin-bottom: 32px;
+  }
+
+  .hero .eyebrow{
+    font-family: -apple-system, 'Fredoka', 'Segoe UI', sans-serif;
+    letter-spacing: 0.04em;
+    font-size: 0.85rem;
+    color: var(--plum);
+    margin-bottom: 18px;
+  }
+
+  .hero h1{
+    font-size: clamp(2.4rem, 7vw, 4.2rem);
+    font-weight: 400;
+    margin: 0 0 28px;
+    
+    color: var(--plum);
+  }
+
+  .counter{
+    font-family: -apple-system, 'Segoe UI', sans-serif;
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .counter .unit{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 64px;
+  }
+
+  .counter .num{
+    font-size: 2.1rem;
+    font-weight: 600;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .counter .label{
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--plum);
+    margin-top: 4px;
+  }
+
+  .scroll-hint{
+    margin-top: 60px;
+    font-family: -apple-system, sans-serif;
+    font-size: 0.8rem;
+    color: rgba(54,43,74,0.5);
+  }
+
+  /* ---------- SECTION HEADERS ---------- */
+
+  h2{
+    font-size: 1.7rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--plum);
+    margin: 0 0 40px;
+    text-align: center;
+  }
+
+  /* ---------- TIMELINE ---------- */
+
+  .timeline{
+    border-left: 2px solid var(--line);
+    margin-left: 8px;
+    padding-left: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 34px;
+  }
+
+  .moment{
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .moment.show{ opacity: 1; transform: translateY(0); }
+
+  .moment::before{
+    content:"";
+    position: absolute;
+    left: -33.5px;
+    top: 6px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--gold);
+  }
+
+  .moment img{
+    width: 108px;
+    height: 108px;
+    object-fit: cover;
+    border-radius: 4px;
+    flex-shrink: 0;
+    border: 1px solid var(--line);
+  }
+
+  .moment .text{ min-width: 0; }
+
+  .moment .date{
+    font-family: -apple-system, sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--plum);
+    margin-bottom: 4px;
+  }
+
+  .moment .title{
+    font-size: 1.15rem;
+    margin: 0 0 4px;
+  }
+
+  .moment .desc{
+    font-size: 0.95rem;
+    color: rgba(54,43,74,0.75);
+    margin: 0;
+  }
+
+  /* ---------- NOTE REVEAL ---------- */
+
+  .note-wrap{
+    text-align: center;
+  }
+
+  .note-button{
+    font-family: -apple-system, sans-serif;
+    background: var(--plum);
+    color: var(--paper);
+    border: none;
+    padding: 14px 30px;
+    border-radius: 100px;
+    font-size: 0.9rem;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
+
+  .note-button:hover{ transform: scale(1.04); background: #58305A; }
+
+  .note-letter{
+    margin-top: 30px;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 36px 32px;
+    font-size: 1.05rem;
+    text-align: left;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.7s ease, opacity 0.7s ease, padding 0.7s ease;
+  }
+
+  .note-letter.open{
+    max-height: 600px;
+    opacity: 1;
+  }
+
+  .note-letter p{ margin: 0 0 14px; }
+  .note-letter .sign{ font-style: italic; color: var(--plum); margin-top: 20px; }
+
+  footer{
+    text-align: center;
+    font-family: -apple-system, sans-serif;
+    font-size: 0.75rem;
+    color: rgba(54,43,74,0.4);
+    padding: 40px 20px 60px;
+  }
+
+  .heart{
+    position: fixed;
+    top: -20px;
+    font-size: 1.2rem;
+    pointer-events: none;
+    animation: fall linear forwards;
+    z-index: 5;
+  }
+
+  @keyframes fall{
+    to{ transform: translateY(110vh) rotate(30deg); opacity: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .moment{ transition: none; opacity: 1; transform: none; }
+    .heart{ animation: none; display: none; }
+  }
+
+  @media (max-width: 480px){
+    /* photo sizes intentionally stay fixed at all screen widths */
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="eyebrow">for the two of us</div>
+  <h1>One Month with You</h1>
+  <img class="hero-photo" src="Images/ipc_image_square.png" alt="">
+  <div class="hero-row">
+    <div class="counter" id="counter">
+      <div class="unit"><span class="num" id="d">00</span><span class="label">days</span></div>
+      <div class="unit"><span class="num" id="h">00</span><span class="label">hours</span></div>
+      <div class="unit"><span class="num" id="m">00</span><span class="label">minutes</span></div>
+      <div class="unit"><span class="num" id="s">00</span><span class="label">seconds</span></div>
+    </div>
+  </div>
+  <div class="scroll-hint">scroll down ↓</div>
+</section>
+
+<section>
+  <h2>how it went</h2>
+  <div class="timeline" id="timeline">
+    <div class="moment">
+      <img src="Images/Leaving_IPC.jpg" alt="">
+      <div class="text">
+        <div class="date">August 8th</div>
+        <div class="title">I left IPC</div>
+        <p class="desc">But it wasnt a goodbye, it was only 'see you later'.</p>
+        <p class="desc">またね!! 👋🏻</p>
+      </div>
+    </div>
+    <div class="moment">
+      <img src="Images/Nodoka_coming_Slovakia.jpg" alt="">
+      <div class="text">
+        <div class="date">August 28th</div>
+        <div class="title">You came to Slovakia</div>
+        <p class="desc">I couldnt believe you actually came here! I was sooo happy.</p>
+      </div>
+    </div>
+    <div class="moment">
+      <img src="Images/Bratislava.jpg" alt="">
+      <div class="text">
+        <div class="date">August 29th</div>
+        <div class="title">We explored Bratislava</div>
+        <p class="desc">We explored Bratislava's most significant historical monuments, and enjoyed the view from Bratislava Castle 🏰.</p>
+      </div>
+    </div>
+    <div class="moment">
+      <img src="Images/birthday.jpg" alt="">
+      <div class="text">
+        <div class="date">August 29th</div>
+        <div class="title">We celebrated your birthday!!</div>
+        <p class="desc">誕生日おめでとう!! 🥳</p>
+        <p class="desc">So happy I got to celebrate your birthday with you!</p>
+      </div>
+    </div>
+    <div class="moment">
+      <img src="Images/Devin.jpg" alt="">
+      <div class="text">
+        <div class="date">August 30th</div>
+        <div class="title">We visited Devín Castle and went swimming</div>
+        <p class="desc">We visited Devín Castle 🏰 and later went swimming at Draždiak in Petržalka 🏊🏻‍♂️.</p>
+      </div>
+    </div>
+    <div class="moment">
+      <img src="Images/Welcome Back.jpg" alt="">
+      <div class="text">
+        <div class="date">August 30th</div>
+        <div class="title">You came back to IPC</div>
+        <p class="desc">After a wonderful weekend in Slovakia, we parted ways once again. Saying goodbye was so hard, but again, it's just 'see you later'</p>
+        <p class="desc">またね!! 👋🏻</p>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+<section class="note-wrap">
+  <h2>one more thing</h2>
+  <button class="note-button" id="noteBtn">open the note</button>
+  <div class="note-letter" id="noteLetter">
+    <p>Write your real note here. Say the thing you actually mean — what this month has been like, a specific moment you keep thinking about, what you're looking forward to.</p>
+    <p>Keep it short or let it run long, whatever feels like you.</p>
+    <p class="sign">— replace with your name</p>
+  </div>
+</section>
+
+<footer>To Nodoka, from Misik</footer>
+
+<script>
+  const startDate = new Date("2026-08-15T23:25:00");
+
+  function updateCounter(){
+    const now = new Date();
+    let diff = Math.max(0, now - startDate);
+    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const m = Math.floor((diff / (1000 * 60)) % 60);
+    const s = Math.floor((diff / 1000) % 60);
+    document.getElementById('d').textContent = String(d).padStart(2, '0');
+    document.getElementById('h').textContent = String(h).padStart(2, '0');
+    document.getElementById('m').textContent = String(m).padStart(2, '0');
+    document.getElementById('s').textContent = String(s).padStart(2, '0');
+  }
+  updateCounter();
+  setInterval(updateCounter, 1000);
+
+  const moments = document.querySelectorAll('.moment');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('show'); });
+  }, { threshold: 0.3 });
+  moments.forEach(m => io.observe(m));
+
+  const noteBtn = document.getElementById('noteBtn');
+  const noteLetter = document.getElementById('noteLetter');
+  let opened = false;
+
+  noteBtn.addEventListener('click', () => {
+    opened = !opened;
+    noteLetter.classList.toggle('open', opened);
+    noteBtn.textContent = opened ? 'close the note' : 'open the note';
+    if (opened) dropHearts();
+  });
+
+  function dropHearts(){
+    const symbols = ['♥','♡'];
+    for (let i = 0; i < 18; i++){
+      setTimeout(() => {
+        const h = document.createElement('div');
+        h.className = 'heart';
+        h.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+        h.style.left = Math.random() * 100 + 'vw';
+        h.style.color = Math.random() > 0.5 ? '#6B3F69' : '#C99B4A';
+        h.style.animationDuration = (3 + Math.random() * 2) + 's';
+        document.body.appendChild(h);
+        setTimeout(() => h.remove(), 5500);
+      }, i * 90);
+    }
+  }
+</script>
+
+</body>
+</html>
