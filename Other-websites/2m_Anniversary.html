@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="Images/Lock_icon.png" type="image/x-icon">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
+<title>Two Months With You</title>
+<style>
+
+  :root{
+    --paper: #ddbda2;   /* latte */
+    --ink: #2E1F17;     /* espresso */
+    --plum: #6F4328;    /* chestnut (main accent, name kept for the rest of the CSS) */
+    --gold: #B9803F;    /* caramel */
+    --blush: #CFA98A;   /* milk coffee */
+    --line: rgba(46, 31, 23, 0.18);
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body{
+    margin:0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Fredoka', 'Times New Roman', serif;
+    line-height: 1.5;
+  }
+
+  body::before{
+    content:"";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(111,67,40,0.07) 0, transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(185,128,63,0.08) 0, transparent 40%);
+    z-index: 0;
+  }
+
+  section{
+    position: relative;
+    z-index: 1;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 90px 28px;
+  }
+
+  /* ---------- HERO ---------- */
+
+  .hero{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 28px;
+  }
+
+  .hero-row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    flex-wrap: wrap;
+  }
+
+  .hero-photo{
+    width: 260px;
+    height: 260px;
+    flex: 0 0 260px;
+    object-fit: cover;
+    border-radius: 14px;
+    border: 1px solid var(--line);
+    margin-bottom: 32px;
+  }
+
+  .hero .eyebrow{
+    font-family: -apple-system, 'Fredoka', 'Segoe UI', sans-serif;
+    letter-spacing: 0.04em;
+    font-size: 0.85rem;
+    color: var(--plum);
+    margin-bottom: 18px;
+  }
+
+  .hero h1{
+    font-size: clamp(2.4rem, 7vw, 4.2rem);
+    font-weight: 400;
+    margin: 0 0 28px;
+    
+    color: var(--plum);
+  }
+
+  .counter{
+    font-family: -apple-system, 'Segoe UI', sans-serif;
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .counter{ --tile: #F3E6D4; }
+
+  .counter .unit{
+    position: relative;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 72px;
+    padding: 14px 10px 10px;
+    background: var(--tile);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    box-shadow: 0 2px 0 rgba(111,67,40,0.18);
+  }
+
+  /* hairline across the tile, like the hinge of a flip clock */
+  .counter .unit::before{
+    content:"";
+    position: absolute;
+    left: 0; right: 0;
+    top: 38px;
+    height: 1px;
+    background: var(--line);
+  }
+
+  .counter .num{
+    font-size: 2.1rem;
+    line-height: 1.1;
+    font-weight: 600;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .counter .num.tick{ animation: tick 0.35s ease-out; }
+
+  @keyframes tick{
+    from{ transform: translateY(-35%); opacity: 0; }
+    to{ transform: translateY(0); opacity: 1; }
+  }
+
+  .counter .label{
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--plum);
+    margin-top: 8px;
+  }
+
+  .scroll-hint{
+    margin-top: 60px;
+    font-family: -apple-system, sans-serif;
+    font-size: 0.8rem;
+    color: rgba(46,31,23,0.55);
+  }
+
+  /* ---------- SECTION HEADERS ---------- */
+
+  h2{
+    font-size: 1.7rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--plum);
+    margin: 0 0 40px;
+    text-align: center;
+  }
+
+  /* ---------- MEET AGAIN COUNTDOWN ---------- */
+
+  .meet{
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  /* boarding pass */
+  .ticket{
+    position: relative;
+    text-align: left;
+    background: #FBF4EA;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    box-shadow: 0 10px 24px rgba(46,31,23,0.14);
+    transform: rotate(-1deg);
+  }
+
+  .ticket-head{
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 22px;
+    background: var(--plum);
+    color: var(--paper);
+    border-radius: 15px 15px 0 0;
+    font-family: -apple-system, 'Segoe UI', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .ticket-body{ padding: 26px 20px 24px; }
+
+  .ticket .counter{
+    --tile: #F0E0CA;
+    flex-wrap: nowrap;
+    gap: 8px;
+  }
+
+  .ticket .counter .unit{ flex: 1 1 0; min-width: 0; max-width: 104px; }
+  .ticket .counter .num{ font-size: 2.3rem; }
+  .ticket .counter .unit::before{ top: 42px; }
+
+  /* the little plane that flies along as the day gets closer */
+  .route{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 26px;
+    font-family: -apple-system, 'Segoe UI', sans-serif;
+    font-size: 0.75rem;
+    color: var(--plum);
+  }
+
+  .track{
+    position: relative;
+    flex: 1;
+    height: 2px;
+    border-top: 2px dashed rgba(111,67,40,0.35);
+  }
+
+  .track .fill{
+    position: absolute;
+    left: 0; top: -2px;
+    height: 2px;
+    width: 0%;
+    background: var(--gold);
+  }
+
+  .track .plane{
+    position: absolute;
+    top: -13px;
+    left: 0%;
+    transform: translateX(-50%) rotate(45deg);
+    font-size: 1.5rem;
+    line-height: 1;
+    color: var(--plum);
+  }
+
+  .perf{
+    position: relative;
+    border-top: 2px dashed rgba(111,67,40,0.3);
+    margin: 0 18px;
+  }
+
+  .perf::before, .perf::after{
+    content:"";
+    position: absolute;
+    top: -12px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--paper);
+    border: 1px solid var(--line);
+  }
+  .perf::before{ left: -30px; border-color: transparent; }
+  .perf::after{ right: -30px; border-color: transparent; }
+
+  .ticket-foot{
+    display: flex;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 18px 22px 22px;
+    font-family: -apple-system, 'Segoe UI', sans-serif;
+  }
+
+  .ticket-foot .field{ display: flex; flex-direction: column; gap: 2px; }
+  .ticket-foot .field:last-child{ text-align: right; }
+  .ticket-foot .k{ font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--plum); }
+  .ticket-foot .v{ font-size: 1.05rem; font-weight: 600; color: var(--ink); }
+
+  .meet-done{
+    display: none;
+    font-size: 1.5rem;
+    color: var(--plum);
+    margin: 0;
+    padding: 18px 0 6px;
+    text-align: center;
+  }
+
+  .meet.arrived .counter,
+  .meet.arrived .route{ display: none; }
+  .meet.arrived .meet-done{ display: block; }
+
+  @media (max-width: 480px){
+    .ticket{ transform: none; }
+    .ticket .counter .num{ font-size: 1.9rem; }
+    .ticket .counter .unit::before{ top: 36px; }
+  }
+
+  /* ---------- TIMELINE ---------- */
+
+  .timeline{
+    border-left: 2px solid var(--line);
+    margin-left: 8px;
+    padding-left: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 34px;
+  }
+
+  .moment{
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .moment.show{ opacity: 1; transform: translateY(0); }
+
+  .moment::before{
+    content:"";
+    position: absolute;
+    left: -33.5px;
+    top: 6px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--gold);
+  }
+
+  .moment img{
+    width: 108px;
+    height: 108px;
+    object-fit: cover;
+    border-radius: 4px;
+    flex-shrink: 0;
+    border: 1px solid var(--line);
+  }
+
+  .moment .text{ min-width: 0; }
+
+  .moment .date{
+    font-family: -apple-system, sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--plum);
+    margin-bottom: 4px;
+  }
+
+  .moment .title{
+    font-size: 1.15rem;
+    margin: 0 0 4px;
+  }
+
+  .moment .desc{
+    font-size: 0.95rem;
+    color: rgba(46,31,23,0.78);
+    margin: 0;
+  }
+
+  /* ---------- NOTE REVEAL ---------- */
+
+  .note-wrap{
+    text-align: center;
+  }
+
+  .note-button{
+    font-family: -apple-system, sans-serif;
+    background: var(--plum);
+    color: var(--paper);
+    border: none;
+    padding: 14px 30px;
+    border-radius: 100px;
+    font-size: 0.9rem;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
+
+  .note-button:hover{ transform: scale(1.04); background: #573420; }
+
+  .note-letter{
+    margin-top: 30px;
+    background: #FBF4EA;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 36px 32px;
+    font-size: 1.05rem;
+    text-align: left;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.7s ease, opacity 0.7s ease, padding 0.7s ease;
+  }
+
+  .note-letter.open{
+    max-height: none;
+    opacity: 1;
+  }
+
+  .note-letter p{ margin: 0 0 14px; }
+  .note-letter .sign{ font-style: italic; color: var(--plum); margin-top: 20px; }
+
+  footer{
+    text-align: center;
+    font-family: -apple-system, sans-serif;
+    font-size: 0.75rem;
+    color: rgba(46,31,23,0.5);
+    padding: 40px 20px 60px;
+  }
+
+  .heart{
+    position: fixed;
+    top: -20px;
+    font-size: 1.2rem;
+    pointer-events: none;
+    animation: fall linear forwards;
+    z-index: 5;
+  }
+
+  @keyframes fall{
+    to{ transform: translateY(110vh) rotate(30deg); opacity: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .moment{ transition: none; opacity: 1; transform: none; }
+    .heart{ animation: none; display: none; }
+    .counter .num.tick{ animation: none; }
+  }
+
+  @media (max-width: 480px){
+    /* photo sizes intentionally stay fixed at all screen widths */
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="eyebrow">To my Travel Companion</div>
+  <h1>Two Months with You</h1>
+  <img class="hero-photo" src="Images/macrame.jpg" alt="">
+  <div class="hero-row">
+    <div class="counter" id="counter">
+      <div class="unit"><span class="num" id="d">00</span><span class="label">days</span></div>
+      <div class="unit"><span class="num" id="h">00</span><span class="label">hours</span></div>
+      <div class="unit"><span class="num" id="m">00</span><span class="label">minutes</span></div>
+      <div class="unit"><span class="num" id="s">00</span><span class="label">seconds</span></div>
+    </div>
+  </div>
+  <div class="scroll-hint">scroll down ↓</div>
+</section>
+
+
+<section class="meet" id="meet">
+  <h2>until we meet again</h2>
+  <div class="ticket">
+    <div class="ticket-head"><span>Boarding pass</span><span>Thu 22.10.2026</span></div>
+    <div class="ticket-body">
+      <div class="counter" id="meetCounter">
+        <div class="unit"><span class="num" id="md">00</span><span class="label">days</span></div>
+        <div class="unit"><span class="num" id="mh">00</span><span class="label">hours</span></div>
+        <div class="unit"><span class="num" id="mm">00</span><span class="label">minutes</span></div>
+        <div class="unit"><span class="num" id="ms">00</span><span class="label">seconds</span></div>
+      </div>
+      <div class="route">
+        <span>apart</span>
+        <div class="track"><div class="fill" id="fill"></div><span class="plane" id="plane">&#9992;&#xFE0E;</span></div>
+        <span>together</span>
+      </div>
+      <p class="meet-done">Today is the day! See you soon ♥</p>
+    </div>
+    <div class="perf"></div>
+    <div class="ticket-foot">
+      <div class="field"><span class="k">Passenger</span><span class="v">Misik</span></div>
+      <div class="field"><span class="k">Travel companion</span><span class="v">Nodoka</span></div>
+      <div class="field"><span class="k">Boarding</span><span class="v">14:40</span></div>
+    </div>
+  </div>
+</section>
+
+
+<section class="note-wrap">
+  <h2>just a little thing before you go</h2>
+  <button class="note-button" id="noteBtn">open the note</button>
+  <div class="note-letter" id="noteLetter">
+    <p>Nodoka,</p>
+    <p>I know we haven’t been together in person during Month 2, but there are still soo many things I want to thank you for.</p>
+    <p>Thank you for always supporting me, cheering me on, and being so understanding. Even though I miss you soo much, I never feel alone. That’s because I have you by my side, and that’s more than I could ever ask for.</p>
+    <p>No matter how terrible or exhausting my day has been, even just a minute of talking to you makes me so happy.</p>
+    <p>I can’t wait for everything we still have ahead of us!</p>
+    <p>I Love You sooo much 🫶🏻</p>
+    <p class="sign">Your travel companion,</p>
+    <p class="sign">Misik</p>
+  </div>
+</section>
+
+<footer>15.10.2026</footer>
+
+<script>
+  const startDate = new Date("2026-08-15T23:25:00");
+  // Thursday 22.10.2026 at 18:00 (local time of the device viewing the page)
+  const meetDate = new Date("2026-10-22T18:00:00");
+
+  // where the little plane starts flying from (change this to the day you last said goodbye)
+  const tripStart = new Date("2026-08-30T18:00:00");
+
+  function setUnits(diff, ids){
+    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const m = Math.floor((diff / (1000 * 60)) % 60);
+    const s = Math.floor((diff / 1000) % 60);
+    [d, h, m, s].forEach((v, i) => {
+      const el = document.getElementById(ids[i]);
+      const text = String(v).padStart(2, '0');
+      if (el.textContent !== text){
+        el.textContent = text;
+        el.classList.remove('tick');
+        void el.offsetWidth; // restart the animation
+        el.classList.add('tick');
+      }
+    });
+  }
+
+  function updateCounter(){
+    const now = new Date();
+    setUnits(Math.max(0, now - startDate), ['d', 'h', 'm', 's']);
+
+    const left = meetDate - now;
+    setUnits(Math.max(0, left), ['md', 'mh', 'mm', 'ms']);
+    document.getElementById('meet').classList.toggle('arrived', left <= 0);
+
+    const pct = Math.min(1, Math.max(0, (now - tripStart) / (meetDate - tripStart))) * 100;
+    document.getElementById('fill').style.width = pct + '%';
+    document.getElementById('plane').style.left = pct + '%';
+  }
+  updateCounter();
+  setInterval(updateCounter, 1000);
+
+  const moments = document.querySelectorAll('.moment');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('show'); });
+  }, { threshold: 0.3 });
+  moments.forEach(m => io.observe(m));
+
+  const noteBtn = document.getElementById('noteBtn');
+  const noteLetter = document.getElementById('noteLetter');
+  let opened = false;
+
+  noteBtn.addEventListener('click', () => {
+    opened = !opened;
+    noteLetter.classList.toggle('open', opened);
+    noteBtn.textContent = opened ? 'close the note' : 'open the note';
+    if (opened) dropHearts();
+  });
+
+  function dropHearts(){
+    const symbols = ['♥','♡'];
+    for (let i = 0; i < 18; i++){
+      setTimeout(() => {
+        const h = document.createElement('div');
+        h.className = 'heart';
+        h.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+        h.style.left = Math.random() * 100 + 'vw';
+        h.style.color = Math.random() > 0.5 ? '#6F4328' : '#B9803F';
+        h.style.animationDuration = (3 + Math.random() * 2) + 's';
+        document.body.appendChild(h);
+        setTimeout(() => h.remove(), 5500);
+      }, i * 90);
+    }
+  }
+</script>
+
+</body>
+</html>
